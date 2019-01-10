@@ -41,10 +41,12 @@ function purchaseItem() {
         .then(function (answer) {
             var userItemPurchase = parseInt(answer.id)
             var userItemQuantity = parseInt(answer.itemQuantity)
-            console.log(userItemPurchase)
+            //console.log(userItemPurchase)
             connection.query(`SELECT * FROM products WHERE item_id = ${userItemPurchase}`, function (error, response) {
                 var selectedItemQuantity = response[0].stock_quantity
                 var updatedQuantity = selectedItemQuantity - userItemQuantity
+                var itemPrice = parseInt(response[0].price);
+                var totalPrice = itemPrice * userItemQuantity;
                 if (userItemQuantity > selectedItemQuantity) {
                     console.log("Sorry, there is not enough of this product to meet your request.")
                 }
@@ -55,7 +57,7 @@ function purchaseItem() {
                             console.log(error);
                         }
                         else {
-                            console.log("Your order went through!")
+                            console.log("Your order went through!\n $" + totalPrice + " is your total.")
                             promptReorder();
 
                             
