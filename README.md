@@ -9,8 +9,9 @@ In order, this app will:
   3. Ask user how many of said item they want to purchase.
      -If quantity from user is greater than the item quantity, an error message is displayed.
      -If quantity from user is less than or equal to item quantity, move onto number 4.
-  4. Display success message, ask if user would like to purchase another item.
+  4. Display success message, show total price, ask if user would like to purchase another item.
      -If answer is n, end connection.
      -If answer is Y, move onto number 5.
   5. Displays table with updated quantity information, restarts previous commands.
   
+https://youtu.be/snNDaplvlwQ
